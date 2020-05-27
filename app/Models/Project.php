@@ -24,4 +24,15 @@ class Project extends Model
     {
         return $this->hasMany(Task::class, 'project_id');
     }
+
+    /**
+     * set the name.
+     *
+     * @param string $value
+     * @return void
+     */
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = $value ?? $this->name;
+    }
 }

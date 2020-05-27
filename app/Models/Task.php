@@ -24,4 +24,37 @@ class Task extends Model
     {
         return $this->belongsTo(Project::class, 'project_id');
     }
+
+    /**
+     * set the preject id.
+     *
+     * @param int $value
+     * @return void
+     */
+    public function setProjectIdAttribute($value)
+    {
+        $this->attributes['project_id'] = $value ?? $this->project_id;
+    }
+
+    /**
+     * set the name.
+     *
+     * @param string $value
+     * @return void
+     */
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = $value ?? $this->name;
+    }
+
+    /**
+     * set the priority.
+     *
+     * @param string $value
+     * @return void
+     */
+    public function setPriorityAttribute($value)
+    {
+        $this->attributes['priority'] = $value ?? $this->priority;
+    }
 }
