@@ -20,6 +20,7 @@ class CreateTasksTable extends Migration
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');           
             $table->string('name');
             $table->enum('priority', ['high', 'medium', 'low'])->default('medium');
+            $table->integer('order');
             $table->timestamps();
         });
     }

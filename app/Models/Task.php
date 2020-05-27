@@ -12,7 +12,7 @@ class Task extends Model
      * @var array
      */
     protected $fillable = [
-        'project_id', 'name', 'priority',
+        'project_id', 'name', 'priority', 'order',
     ];
 
     /**
@@ -56,5 +56,16 @@ class Task extends Model
     public function setPriorityAttribute($value)
     {
         $this->attributes['priority'] = $value ?? $this->priority;
+    }
+
+    /**
+     * set the order.
+     *
+     * @param string $value
+     * @return void
+     */
+    public function setOrderAttribute($value)
+    {
+        $this->attributes['order'] = $value ?? $this->order;
     }
 }

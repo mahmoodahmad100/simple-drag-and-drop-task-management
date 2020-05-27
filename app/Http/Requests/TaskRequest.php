@@ -32,14 +32,16 @@ class TaskRequest extends FormRequest
                 return [
                     'project_id' => 'required|integer',
                     'name'       => 'required|max:200',
-                    'priority'   => 'required|in:high,medium,low'
+                    'priority'   => 'required|in:high,medium,low',
+                    'order'      => 'required|integer',
                 ];
             }
             case 'PUT': {
                 return [
                     'project_id' => 'nullable|integer',
                     'name'       => 'nullable|max:200',
-                    'priority'   => 'nullable|in:high,medium,low'
+                    'priority'   => 'nullable|in:high,medium,low',
+                    'order'      => 'nullable|integer',
                 ];
             }
             case 'PATCH': {

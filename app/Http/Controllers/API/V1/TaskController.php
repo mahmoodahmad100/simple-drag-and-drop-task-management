@@ -17,7 +17,7 @@ class TaskController extends Controller
      */
     public function index(Model $task)
     {
-        return Resource::collection($task->all());
+        return Resource::collection($task->orderBy('order', 'asc')->get());
     }
 
     /**
@@ -32,7 +32,8 @@ class TaskController extends Controller
         return $task->create([
             'project_id' => $request->project_id,
             'name'       => $request->name,
-            'priority'   => $request->priority
+            'priority'   => $request->priority,
+            'order'      => $request->order
         ]);
     }
 
@@ -59,7 +60,8 @@ class TaskController extends Controller
         $task->update([
             'project_id' => $request->project_id,
             'name'       => $request->name,
-            'priority'   => $request->priority
+            'priority'   => $request->priority,
+            'order'      => $request->order
         ]);
         
         return response()->json('successful action.',200);

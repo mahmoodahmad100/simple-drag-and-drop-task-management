@@ -18,6 +18,7 @@ class TaskResource extends Resource
             'id'       => $this->id,
             'name'     => $this->name,
             'priority' => $this->priority,
+            'order'    => $this->order,
             $this->mergeWhen($request->route()->getName() == 'tasks.show', [
                 'project' => new ProjectResource($this->project)
             ])
