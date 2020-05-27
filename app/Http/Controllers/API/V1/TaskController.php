@@ -17,7 +17,7 @@ class TaskController extends Controller
      */
     public function index(Model $task)
     {
-        return Resource::collection($task->orderBy('order', 'asc')->get());
+        return Resource::collection($task->all_orderd_tasks());
     }
 
     /**

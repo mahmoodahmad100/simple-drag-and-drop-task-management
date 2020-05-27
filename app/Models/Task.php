@@ -37,6 +37,16 @@ class Task extends Model
     }
 
     /**
+     * get the orderd tasks.
+     *
+     * @return $this
+     */
+    public function all_orderd_tasks()
+    {
+        return $this->orderByRaw("FIELD(priority, 'high', 'medium', 'low')")->orderBy('order')->get();
+    }
+
+    /**
      * set the name.
      *
      * @param string $value
