@@ -11,4 +11,15 @@
 |
 */
 
+/* Home */
 Route::get('/', 'Web\WebsiteController@index');
+
+/* Projects */
+Route::resource('projects', 'Web\ProjectController', ['only' => [
+    'create', 'show', 'edit'
+]]);
+
+/* Tasks */
+Route::resource('tasks', 'Web\TaskController', ['only' => [
+    'create', 'edit'
+]]);

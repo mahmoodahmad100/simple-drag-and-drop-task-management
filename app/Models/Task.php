@@ -71,7 +71,7 @@ class Task extends Model
     /**
      * set the order.
      *
-     * @param string $value
+     * @param int $value
      * @return void
      */
     public function setOrderAttribute($value)
