@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="userApp">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -10,6 +10,9 @@
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+    <!-- sweetalert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@8.13.1/dist/sweetalert2.min.css">
 
     <!-- css -->
     @yield('css')
@@ -24,15 +27,30 @@
     <!-- content -->
     @yield('content')
 
-    <!-- delete modal -->
-    @include('layouts.partials._modal')
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!-- sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.13.1/dist/sweetalert2.all.min.js"></script>
+    <!-- AngularJs -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <!-- AngularJS App -->
+    <script src="{{ URL::to('app/app.module.js') }}"></script>
+    <!-- AngularJS Project Service -->
+    <script src="{{ URL::to('app/services/project.service.js') }}"></script>
+    <!-- AngularJS Project Controller -->
+    <script src="{{ URL::to('app/controllers/project.controller.js') }}"></script>
+    <!-- AngularJS Task Service -->
+    <script src="{{ URL::to('app/services/task.service.js') }}"></script>
+    <!-- AngularJS Task Controller -->
+    <script src="{{ URL::to('app/controllers/task.controller.js') }}"></script>
+
+    {{-- custom script --}}
+    <script>
+        localStorage.setItem('APP_BASE_PATH', '{{ URL::to('/') }}');
+    </script>
 
     <!-- js -->
     @yield('js')

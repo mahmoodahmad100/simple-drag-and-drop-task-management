@@ -16,7 +16,7 @@ Route::get('/', 'Web\WebsiteController@index');
 
 /* Projects */
 Route::resource('projects', 'Web\ProjectController', ['only' => [
-    'create', 'show', 'edit'
+    'index', 'create', 'show', 'edit'
 ]]);
 
 /* Tasks */

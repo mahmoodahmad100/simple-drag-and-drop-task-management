@@ -22,7 +22,7 @@ class Project extends Model
      */
     public function tasks()
     {
-        return $this->hasMany(Task::class, 'project_id');
+        return $this->hasMany(Task::class, 'project_id')->orderByRaw("FIELD(priority, 'high', 'medium', 'low')")->orderBy('order');
     }
 
     /**

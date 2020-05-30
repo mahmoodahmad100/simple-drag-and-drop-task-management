@@ -24,6 +24,16 @@ class ProjectController extends Controller
     }
 
     /**
+     * Display the listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view($this->directory . '.' . __FUNCTION__);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

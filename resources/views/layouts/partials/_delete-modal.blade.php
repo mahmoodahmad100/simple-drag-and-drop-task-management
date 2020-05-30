@@ -1,4 +1,4 @@
-<!-- Modal -->
+<!-- Delete Modal -->
 <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -13,7 +13,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger">confirm</button>
+        <button type="button" class="btn btn-danger" ng-click="destroy()">confirm</button>
       </div>
     </div>
   </div>

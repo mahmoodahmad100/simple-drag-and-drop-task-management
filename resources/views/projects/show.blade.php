@@ -1,10 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
-	<div class="container mt-3">
+	<div class="container mt-3" ng-controller="projectCtrl">
 		<div class="row">
 			<div class="col-md-12 text-center">
-				<h3>All Tasks related to the project</h3>
+				<h3>All Tasks related to <b><u>@{{ project.name }}</u></b> project</h3>
 				<table class="table">
 				  <thead>
 				    <tr>
@@ -15,18 +15,21 @@
 				    </tr>
 				  </thead>
 				  <tbody>
-				    <tr>
-				      <th>1</th>
-				      <td>Test</td>
-				      <td>high</td>
+				    <tr ng-repeat="task in project.tasks">
+				      <th>@{{ task.id }}</th>
+				      <td>@{{ task.name }}</td>
+				      <td>@{{ task.priority }}</td>
 				      <td>
-				      	<a class="btn btn-info" href="#"><i class="fa fa-pencil"></i></a>
-				      	<a class="btn btn-danger" href="#" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash"></i></a>
+				      	<a class="btn btn-info" href="../tasks/@{{ task.id }}/edit"><i class="fa fa-pencil"></i></a>
+				      	<a class="btn btn-danger" href="#" ng-click="itemToBeDeleted(task.id)" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash"></i></a>
 				      </td>
 				    </tr>
 				  </tbody>
 				</table>
 			</div>
 		</div>
+
+	    <!-- delete modal -->
+	    @include('layouts.partials._delete-modal')
 	</div>
 @endsection
