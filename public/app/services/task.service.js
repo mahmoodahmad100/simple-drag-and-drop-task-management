@@ -13,6 +13,9 @@ app.factory('taskService', ['$http','backend', function($http, backend) {
 	  update: function (id, payload) {
 	  	return $http.put(endpoint + '/' + id, payload, backend.API_CONFIG);
 	  },
+	  order: function (payload) {
+	  	return $http.put(endpoint, payload, backend.API_CONFIG);
+	  },
 	  destroy: function (id) {
 	  	return $http.delete(endpoint + '/' + id, backend.API_CONFIG);
 	  },

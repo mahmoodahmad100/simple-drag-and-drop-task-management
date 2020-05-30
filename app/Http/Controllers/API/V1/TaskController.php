@@ -68,6 +68,19 @@ class TaskController extends Controller
     }
 
     /**
+     * update the order of the tasks.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function order()
+    {
+        $is_orderd = Model::reorder(request()->ids);
+        if($is_orderd)
+            return response()->json('successful action.', 200);
+        return response()->json('please make sure that you are submitting correct data.', 400);
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param object $task

@@ -33,7 +33,7 @@ app.controller('projectCtrl', function($scope, $window, projectService, taskServ
 			})
 		});
 	}
-	else if(route != 'create')
+	else if(route != 'create')  // to show the specified project (through the id)
 	{
 		var id = current_page.substring(current_page.lastIndexOf('/') + 1);
 		projectService.show(id)
@@ -47,6 +47,37 @@ app.controller('projectCtrl', function($scope, $window, projectService, taskServ
 			  text: 'something went wrong please try again later'
 			})
 		});
+
+		// sorting the tasks
+		$(function() {
+		    var sortable = $("tbody").sortable({
+		      revert: true,
+		      cursor: "move",
+		      update: function(event, ui) {
+		      	let rows     = $('tbody tr');
+		      	let payload  = {
+		      		ids: []
+		      	};
+		      	rows.each(function(index){
+		      		payload.ids.push(parseInt($(this).find('th').text()));
+		      	});
+
+		      	// change the order in the backend
+				taskService.order(payload)
+				.then(function(response) {
+					console.log(response);
+				}, function(response) {
+					console.log(response);
+					Swal.fire({
+					  type: 'error',
+					  title: 'Oops...',
+					  text: 'please make sure that you re-order the items again'
+					})
+				});
+
+		      }
+		    });
+		 });
 	}
 
 	$scope.submitForm = function() {

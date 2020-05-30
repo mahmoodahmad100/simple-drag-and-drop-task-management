@@ -47,6 +47,27 @@ class Task extends Model
     }
 
     /**
+     * re order the tasks.
+     *
+     * @param array $ids
+     * @return boolean
+     */
+    public static function reorder($ids)
+    {
+        $is_orderd = false;
+        foreach ($ids as $key => $value) 
+        {
+            (static::find($value))->update([
+                'order' => $key + 1
+            ]);
+
+            if(sizeof($ids) == $key + 1)
+                $is_orderd = true;
+        }
+        return $is_orderd;
+    }
+
+    /**
      * set the name.
      *
      * @param string $value

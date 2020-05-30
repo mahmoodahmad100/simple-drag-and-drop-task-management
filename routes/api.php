@@ -17,4 +17,5 @@ use Illuminate\Http\Request;
 Route::group(['prefix' => 'v1'], function() {
     Route::apiResource('projects', 'API\V1\ProjectController');
     Route::apiResource('tasks', 'API\V1\TaskController');
+    Route::put('tasks', 'API\V1\TaskController@order');
 });

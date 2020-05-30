@@ -1,5 +1,13 @@
 @extends('layouts.master')
 
+@section('css')
+	<style>
+		tbody{
+			cursor: grab;
+		}
+	</style>
+@endsection
+
 @section('content')
 	<div class="container mt-3" ng-controller="projectCtrl">
 		<div class="row">
